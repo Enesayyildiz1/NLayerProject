@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthWind.DataAccess.Concrete
+namespace NorthWind.DataAccess.Concrete.EntityFramework
 {
     using System;
     using System.Collections.Generic;
@@ -24,5 +24,7 @@ namespace NorthWind.DataAccess.Concrete
         public Nullable<short> UnitsOnOrder { get; set; }
         public Nullable<short> ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+    
+        public virtual Categories Categories { get; set; }
     }
 }

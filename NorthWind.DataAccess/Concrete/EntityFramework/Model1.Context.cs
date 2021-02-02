@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthWind.DataAccess.Concrete
+namespace NorthWind.DataAccess.Concrete.EntityFramework
 {
     using System;
     using System.Data.Entity;
@@ -26,5 +26,6 @@ namespace NorthWind.DataAccess.Concrete
         }
     
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
     }
 }
