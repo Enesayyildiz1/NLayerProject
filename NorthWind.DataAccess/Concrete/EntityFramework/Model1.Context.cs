@@ -7,8 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthWind.DataAccess.Concrete.EntityFramework
+namespace NorthWind.Concrete.EntityFramework
 {
+    using NorthWind.DataAccess.Concrete.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;

@@ -1,5 +1,6 @@
-﻿using NorthWind.DataAccess.Abstract;
-using NorthWind.Entities.Concrete;
+﻿using NorthWind.Concrete.EntityFramework;
+using NorthWind.DataAccess.Abstract;
+using NorthWind.DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

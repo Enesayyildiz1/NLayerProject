@@ -17,11 +17,12 @@ namespace NorthWind.Business.Concrete
         {
             _productDal = productDal;
         }
+        EfProductDal EfProductDal = new EfProductDal();
 
         public List<Products> GetAll()
         {
             
-            return _productDal.GetAll();
+            return EfProductDal.GetAll();
         }
     }
 }
