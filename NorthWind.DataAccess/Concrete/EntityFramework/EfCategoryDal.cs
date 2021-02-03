@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NorthWind.DataAccess.Concrete.EntityFramework
 {
-    class EfCategoryDal:EfEntityRepositoryBase<Categories,NorthwindEntities1>
+    public  class EfCategoryDal:EfEntityRepositoryBase<Categories,NorthwindEntities1>,ICategoryDal
     {
     }
 }
