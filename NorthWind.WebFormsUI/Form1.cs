@@ -78,18 +78,27 @@ namespace NorthWind.WebFormsUI
 
         private void addProduct_Click(object sender, EventArgs e)
         {
-            _productService.Add(new Products
+            try
             {
-                ProductName = tbxekleProductName.Text,
-                CategoryID = Convert.ToInt32(cbxekleCategoryName.SelectedValue),
-                UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
-                UnitsInStock = Convert.ToInt16(tbxStockAmount.Text),
-                QuantityPerUnit = tbxQuantityPerUnit.Text,
+                _productService.Add(new Products
+                {
+                    ProductName = tbxekleProductName.Text,
+                    CategoryID = Convert.ToInt32(cbxekleCategoryName.SelectedValue),
+                    UnitPrice = Convert.ToDecimal(tbxUnitPrice.Text),
+                    UnitsInStock = Convert.ToInt16(tbxStockAmount.Text),
+                    QuantityPerUnit = tbxQuantityPerUnit.Text,
 
 
-            });
-            MessageBox.Show("Ürün Kaydedildi");
-            GetProducts();
+                });
+
+                MessageBox.Show("Ürün Kaydedildi");
+                GetProducts();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+          
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

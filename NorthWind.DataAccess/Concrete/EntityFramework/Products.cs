@@ -9,12 +9,17 @@
 
 namespace NorthWind.DataAccess.Concrete.EntityFramework
 {
+    using FluentValidation;
+    using FluentValidation.Internal;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Products
     {
+        
         public int ProductID { get; set; }
+       
         public string ProductName { get; set; }
         public Nullable<int> SupplierID { get; set; }
         public Nullable<int> CategoryID { get; set; }
@@ -26,5 +31,7 @@ namespace NorthWind.DataAccess.Concrete.EntityFramework
         public bool Discontinued { get; set; }
     
         public virtual Categories Categories { get; set; }
+
+       
     }
 }

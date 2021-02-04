@@ -9,6 +9,9 @@ using NorthWind.DataAccess.Abstract;
 using NorthWind.Business.Abstract;
 using System.Windows.Forms;
 using System.Data.Entity.Infrastructure;
+using NorthWind.Business.Validation_Rules.FluentValidaton;
+using System.ComponentModel.DataAnnotations;
+using NorthWind.Business.Utilities;
 
 namespace NorthWind.Business.Concrete
 {
@@ -39,6 +42,8 @@ namespace NorthWind.Business.Concrete
 
         public void Add(Products product)
         {
+            ValidationTool.Validate(new ProductValidator(), product);
+
             _productDal.Add(product);
         }
 
@@ -52,7 +57,7 @@ namespace NorthWind.Business.Concrete
             try
             {
                 _productDal.Delete(product);
-                MessageBox.Show("Ürün başarıyla silindi");
+                 MessageBox.Show("Ürün başarıyla silindi");
             }
             catch (DbUpdateException e)
             {
