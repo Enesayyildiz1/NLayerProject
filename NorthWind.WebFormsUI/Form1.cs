@@ -1,5 +1,6 @@
 ﻿using NorthWind.Business.Abstract;
 using NorthWind.Business.Concrete;
+using NorthWind.Business.DependencyResolvers.Ninject;
 using NorthWind.DataAccess.Abstract;
 using NorthWind.DataAccess.Concrete.EntityFramework;
 using NorthWind.DataAccess.Concrete.NHibernate;
@@ -20,11 +21,15 @@ namespace NorthWind.WebFormsUI
         public btnUpdate()
         {
             InitializeComponent();
+            _productService = InstanceFactory.GetInstance<IProductService>();
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
         }
-        IProductService _productService = new ProductManager(new EfProductDal());
-        ICategoryService _categoryService = new CategoryManager(new EfCategoryDal());
+        private IProductService _productService;
+
+        private ICategoryService _categoryService;
         private void Form1_Load(object sender, EventArgs e)
         {
+
 
             GetProducts();
             LoadCategories();
@@ -152,6 +157,16 @@ namespace NorthWind.WebFormsUI
             }
 
 
+        }
+
+        private void btnAralik_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAralik_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = _productService.GetByUnitPrice(Convert.ToInt32(tbxMin.Text),Convert.ToInt32( tbxMax.Text));
         }
     }
 }

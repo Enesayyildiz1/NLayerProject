@@ -26,8 +26,8 @@ namespace NorthWind.Business.Concrete
 
         public List<Products> GetAll()
         {
-            
-            return EfProductDal.GetAll();
+
+            return _productDal.GetAll();
         }
 
         public List<Products> GetProductsByCategory(int categoryId)
@@ -59,12 +59,17 @@ namespace NorthWind.Business.Concrete
                 _productDal.Delete(product);
                  MessageBox.Show("Ürün başarıyla silindi");
             }
-            catch (DbUpdateException e)
+            catch (DbUpdateException )
             {
 
                 MessageBox.Show("Bu ürünü silemezsiniz");
             }
            
+        }
+
+        public List<Products> GetByUnitPrice(decimal min, decimal max)
+        {
+           return  _productDal.GetAll(x => x.UnitPrice >= min && x.UnitPrice <= max);
         }
     }
 }

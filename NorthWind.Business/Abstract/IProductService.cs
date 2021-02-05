@@ -12,7 +12,8 @@ namespace NorthWind.Business.Abstract
         public List<Products> GetAll();
         List<Products>  GetProductsByCategory(int categoryId);
         List<Products> GetProductsByName(string name);
-        public void Add(Products product);
+        List<Products> GetByUnitPrice(decimal min, decimal max);
+         public void Add(Products product);
         public void Update(Products product);
         public void Delete(Products product);
     }
